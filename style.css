@@ -3,7 +3,6 @@ body {
   margin: 0;
   font-family: Ariel, Helvetica, sans-serif;
   background-color: rgb(65, 105, 145); 
-  /* color: rgb(49, 47, 47); */
   color: white;
   font-size: 1.1em;
   line-height: 1.5em;
@@ -125,7 +124,7 @@ p {
 /* Main Footer */
 #main-footer {
   padding: 2em;
-  background: rgb(65, 105, 145);
+  background: #7196c2;
   color: white;
   text-align: center;
 }
@@ -136,7 +135,40 @@ This is also where the grid class will be used. */
 @media(min-width: 700px) {
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+
+  #section-a .content-text {
+    columns: 2;
+    column-gap: 2em;
+  }
+
+  #section-a .content-text p {
+    padding-top: 0;
+  }
+  /* this will span the div across two columns */
+  .content-wrap, 
+  #section-b ul {
+    grid-column: 2/4;
+  }
+
+  .box, #main-footer div {
+      grid-column: span 2;
+  }
+
+  /* this creates the cards for the larger screen sizes.  This uses flexbox. */
+  #section-b ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* sets the width of the li, each contains a card. */
+  #section-b li {
+    width: 31%;
+  }
+
+
+
   }
 
 }
